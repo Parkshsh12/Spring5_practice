@@ -13,7 +13,7 @@ public class ChangePasswordService {
 			throw new MemberNotFountException();
 			
 		}
-		member.chagePassword(oldPwd, newPwd);
+		member.changePassword(oldPwd, newPwd);
 		
 		memberDao.update(member);
 		

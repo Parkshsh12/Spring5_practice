@@ -44,7 +44,7 @@ public class Member {
 
 	public void changePassword(String oldPassword, String newPassword) {
 		if (!password.equals(oldPassword))
-			throw new WrongIdPasswordException();
+			throw new WrongIdpasswordException();
 		this.password = newPassword;
 	}
 

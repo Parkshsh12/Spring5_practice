@@ -16,7 +16,8 @@ import spring.MemberNotFoundException;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;
 import spring.VersionPrinter;
-import spring.WrongIdPasswordException;
+import spring.WrongIdpasswordException;
+
 
 public class MainForSpring {
 
@@ -91,7 +92,7 @@ public class MainForSpring {
 			System.out.println("암호를 변경했습니다.\n");
 		} catch (MemberNotFoundException e) {
 			System.out.println("존재하지 않는 이메일입니다.\n");
-		} catch (WrongIdPasswordException e) {
+		} catch (WrongIdpasswordException e) {
 			System.out.println("이메일과 암호가 일치하지 않습니다.\n");
 		}
 	}
