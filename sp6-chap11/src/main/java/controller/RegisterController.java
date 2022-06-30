@@ -26,7 +26,7 @@ public class RegisterController {
 	}
 	
 	@PostMapping("/step2")
-	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false")boolean agree) {
+	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false")boolean agree, RegisterRequest registerRequest) {
 		if(!agree) {
 			return "register/step1";
 		}
