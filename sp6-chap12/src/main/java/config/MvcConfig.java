@@ -4,18 +4,22 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import controller.RegisterRequestValidator;
+
 @Configuration
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+	public void configureDefaultServletHandling(
+			DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
 
@@ -28,7 +32,7 @@ public class MvcConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/main").setViewName("main");
 	}
-	
+
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
@@ -37,7 +41,10 @@ public class MvcConfig implements WebMvcConfigurer {
 		return ms;
 	}
 	
-	
-	
+	@Override
+	public Validator getValidator() {
+		return new RegisterRequestValidator();
+	}
+
 	
 }

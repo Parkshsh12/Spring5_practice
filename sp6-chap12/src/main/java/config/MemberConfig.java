@@ -14,7 +14,7 @@ import spring.MemberRegisterService;
 @Configuration
 @EnableTransactionManagement
 public class MemberConfig {
-	
+
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
 		DataSource ds = new DataSource();
@@ -29,24 +29,24 @@ public class MemberConfig {
 		ds.setTimeBetweenEvictionRunsMillis(10 * 1000);
 		return ds;
 	}
-	
+
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		DataSourceTransactionManager tm = new DataSourceTransactionManager();
 		tm.setDataSource(dataSource());
 		return tm;
 	}
-	
+
 	@Bean
 	public MemberDao memberDao() {
 		return new MemberDao(dataSource());
 	}
-	
+
 	@Bean
 	public MemberRegisterService memberRegSvc() {
 		return new MemberRegisterService(memberDao());
 	}
-	
+
 	@Bean
 	public ChangePasswordService changePwdSvc() {
 		ChangePasswordService pwdSvc = new ChangePasswordService();
