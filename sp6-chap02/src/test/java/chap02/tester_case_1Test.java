@@ -24,36 +24,36 @@ class tester_case_1Test {
 	@Test
 	@DisplayName("AssumeTest")
 	void testSum() {
-//		test_case_1 t2 = null;
-//		test_case_1 t1 = new test_case_1();
-//		assertAll(
-//				()->assertTrue(t1.getSum() > 1,()->"sum의 값이 1보다 크지 않습니다."),
-//				()->assertEquals(4, t1.sum(1, 2)),
-//				()->assertNotNull(t2)
-//				
-//				);
-//		System.out.println("첫번째 메서드");
-//		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, ()-> new test_case_1(-1));
-//		String message = exception.getMessage();
-//		assertEquals("음수가 입력되었습니다.", message);
+		test_case_1 t2 = null;
+		test_case_1 t1 = new test_case_1();
+		assertAll(
+				()->assertTrue(t1.getSum() > 1,()->"sum의 값이 1보다 크지 않습니다."),
+				()->assertEquals(4, t1.sum(1, 2)),
+				()->assertNotNull(t2)
+				
+				);
+		System.out.println("첫번째 메서드");
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, ()-> new test_case_1(-1));
+		String message = exception.getMessage();
+		assertEquals("음수가 입력되었습니다.", message);
 		
-//		assertTimeout(Duration.ofSeconds(2), ()->{
-//			new test_case_1(1);
-//			Thread.sleep(3000);
-//		});
+		assertTimeout(Duration.ofSeconds(2), ()->{
+			new test_case_1(1);
+			Thread.sleep(3000);
+		});
 		
-//		test_case_1 t1 = new test_case_1(3);
-//		assumeTrue("ok".equals(test));
-//		assertThat(t1.sum(1, 2)).isEqualTo(3);
+		test_case_1 t3 = new test_case_1(3);
+		assumeTrue("ok".equals(test));
+		assertThat(t1.sum(1, 2)).isEqualTo(3);
 		
 		assumingThat("no".equals(test), ()->{
-			test_case_1 t1 = new test_case_1(10);
-			assertThat(t1.getSum()).isGreaterThan(0);
+			test_case_1 t4 = new test_case_1(10);
+			assertThat(t4.getSum()).isGreaterThan(0);
 		});
 		
 		assumingThat("ok".equals(test), ()->{
-			test_case_1 t1 = new test_case_1(4);
-			assertThat(t1.getSum()).isGreaterThan(1);
+			test_case_1 t4 = new test_case_1(4);
+			assertThat(t4.getSum()).isGreaterThan(1);
 		});
 	}
 	
